@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #f0faf3;
+  --color-brand-100: #dcf3e3;
+  --color-brand-200: #b9e6c8;
+  --color-brand-300: #8bd3a5;
+  --color-brand-400: #55b97c;
+  --color-brand-500: #2f9e5e;
+  --color-brand-600: #1f8049;
+  --color-brand-700: #19663c;
+  --color-brand-800: #155232;
+  --color-brand-900: #10402a;
+  --color-brand-950: #08261a;
+  --color-lime-accent: #a7e07a;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --bg: #f4f8f5;
+  --surface: #ffffff;
+  --ink: #12261b;
+  --ink-2: #4b5d52;
+  --ink-3: #7c8b82;
+  --line: #e2ebe5;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-[var(--line)] bg-white shadow-[0_1px_2px_rgba(16,64,42,0.04)];
+  }
+  .btn,
+  .btn-primary,
+  .btn-light,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50 whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply bg-brand-700 text-white hover:bg-brand-800;
+  }
+  .btn-light {
+    @apply bg-brand-100 text-brand-800 hover:bg-brand-200;
+  }
+  .btn-ghost {
+    @apply border border-[var(--line)] bg-white text-[var(--ink-2)] hover:bg-brand-50 hover:text-brand-800;
+  }
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+  .icon-btn {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-[var(--ink-3)] transition-colors hover:bg-brand-50 hover:text-brand-700;
+  }
+  .input {
+    @apply w-full rounded-lg border border-[var(--line)] bg-white px-3 py-2 text-sm text-[var(--ink)] outline-none transition placeholder:text-[var(--ink-3)] focus:border-brand-500 focus:ring-2 focus:ring-brand-200;
+  }
+  .label {
+    @apply mb-1 block text-xs font-medium text-[var(--ink-2)];
+  }
+  .th {
+    @apply whitespace-nowrap px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-[var(--ink-3)];
+  }
+  .td {
+    @apply whitespace-nowrap px-4 py-3 text-sm;
+  }
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+}
